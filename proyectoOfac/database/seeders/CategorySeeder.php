@@ -24,8 +24,8 @@ class CategorySeeder extends Seeder
 
         // metodo ORM
         $cat = new Category;
-        $cat->name  = 'Xbox';
-        $cat->description = 'xbox lorem insup sit amet.';
+        $cat->name  = 'Play station';
+        $cat->description = 'Desarrollado por sony';
         $cat->save();
 
         $cat = new Category;
