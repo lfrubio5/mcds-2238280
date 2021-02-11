@@ -20,30 +20,40 @@ class UserFactory extends Factory
      *
      * @return array
      */
+    
+     
     public function definition()
     {
+       // $faker = Faker\Factory::create();
+
+        $gender =$this->faker->randomElement($array = array('Female', 'Male'));
+        
+        switch ($gender) {
+            case 'Female':
+               $fullName = $this->faker->firstNameFemale;
+                break;
+            
+            default:
+                $fullName = $this->faker->firstNameMale;
+                break;
+        }
         return [
-            'fullname'          => $this->faker->name,
+            'fullname'          => $fullName ,
             'email'             => $this->faker->unique()->safeEmail,
-            'phone'             => $this->faker->randomNumber($nbDigits = NULL, $strict = false),
-            'birthdate'         => $this->faker->date,
+            'phone'             => $this->faker->numberBetween($min = 3101000000, $max = 3202000000),
+            'birthdate'         => $this->faker->dateTimeBetween($startDate = '1960', $endDate = '1999', $timezone = null),
             'gender'            => $this->faker->randomElement($array = array('Female', 'Male')),
             'address'           => $this->faker->streetAddress,
+            'photo'             => $this->faker->image($dir = '/tmp', $width = 640, $height = 480),
             'role'              => 'Editor',  
             'email_verified_at' => now(),
             'password'          => bcrypt('editor'), 
             'remember_token'    => Str::random(10),
         ];
     }
+
+    
 }
-/*
-        DB::table('users')->insert([
-			'fullname'  => 'Jeremias Springfield',
-			'email'     => 'jeremias@gmail.com',
-			'phone'     => 320123121,
-			'birthdate' => '1970-10-05',
-			'gender'    => 'Male',
-			'address'   => 'Calle Siempre Viva # 12',
-			'role'      => 'Admin',
-			'password'  => bcrypt('admin'),
-        ]); */
+
+
+               
