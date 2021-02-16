@@ -47,4 +47,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function games(){
+        return $this->hasMany('App\Models\Game');// un usuario tiene muchos juegos
+    }
 }
