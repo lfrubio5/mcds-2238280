@@ -38,13 +38,13 @@ class UserFactory extends Factory
                 break;
         }
         return [
-            'fullname'          => $fullName ,
+            'fullname'          => $fullName.' '.$this->faker->lastName ,
             'email'             => $this->faker->unique()->safeEmail,
             'phone'             => $this->faker->numberBetween($min = 3101000000, $max = 3202000000),
             'birthdate'         => $this->faker->dateTimeBetween($startDate = '1960', $endDate = '1999', $timezone = null),
             'gender'            => $this->faker->randomElement($array = array('Female', 'Male')),
             'address'           => $this->faker->streetAddress,
-            'photo'             => $this->faker->image($dir = '/tmp', $width = 640, $height = 480),
+            'photo'             => $this->faker->image(public_path('images'),400,300, 'http://lorempixel.com/640/480/cats/', false),
             'role'              => 'Editor',  
             'email_verified_at' => now(),
             'password'          => bcrypt('editor'), 
@@ -54,6 +54,7 @@ class UserFactory extends Factory
 
     
 }
+
 
 
                
