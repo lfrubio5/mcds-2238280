@@ -9,9 +9,9 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col col-sm-12"
-                table
-            ></div>
+            <div class="col col-sm-12" >
+            {{ $user->fullname }}
+            </div>
         </div>
     </div>
 </body>

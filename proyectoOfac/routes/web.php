@@ -39,7 +39,7 @@ Route::get('showuser/{id}', function (Request $request) {
 Route::get('userlimit', function () {
     $user = App\Models\User::limit(10)->get();
     $date = date('Y');
-    echo Carbon::now(); die;
+    echo Carbon::now(); 
     foreach ($user as $key => $value) {
         
         $yearUser = Carbon::createFromFormat('Y-m-d', $value["birthdate"])->format('Y');
@@ -58,3 +58,19 @@ Route::get('userlimit', function () {
     }
 });
 
+
+Route::get('challenge', function () {
+    //$user = App\Models\User::all()->take(10)->get();
+    foreach (App\Models\User::all()->take(10) as $user) {
+        $years = Carbon::createFromDate($user->birthdate)->diff()->format('%y years old');
+        $since = Carbon::parse($user->created_at);
+       // echo $user->fullname. " - ".$years. " - created->".$since->diffForHumans()." <br>"; 
+         $results[] = $user->fullname . " - " . $years . " - created " . $since->diffForHumans() . "<br>";
+    }
+  
+    // cambiar este por el var_dump
+   // return 'La primera ruta bienvenido';
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
