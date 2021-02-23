@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
             //
         ]);
         //fabrica de datos llamado a la factoria de usuarios
-    \App\Models\User::factory(10)->create();// general 100 registros en la tabla usuario
+    \App\Models\User::factory(100)->create();// general 100 registros en la tabla usuario
     }
 }

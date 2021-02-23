@@ -48,7 +48,7 @@ class UserFactory extends Factory
             'role'              => 'Editor',  
             'email_verified_at' => now(),
             'password'          => bcrypt('editor'), 
-            'remember_token'    => Str::random(10),
+            'remember_token'    => Str::random(100),
         ];
     }
 
