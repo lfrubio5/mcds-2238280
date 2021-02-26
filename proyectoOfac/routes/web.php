@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -34,6 +35,13 @@ Route::get('showuser/{id}', function (Request $request) {
     $id = $request->id;
     $user = App\Models\User::find($id);
     return view('showuser')->with('user', $user);
+});
+
+Route::get('examples', function () {
+    $user = App\Models\User::limit(10)->get();
+    if (View::exists('examples')) {
+        return view('examples')->with('users',$user);
+    } 
 });
 
 Route::get('userlimit', function () {
