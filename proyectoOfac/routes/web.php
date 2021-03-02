@@ -26,7 +26,7 @@ Route::get('hello', function () {
 
 Route::get('allusers', function () {
     $user = App\Models\User::take(10)->get();
-    dd($user);// cambiar este por el var_dump
+  //  dd($user);// cambiar este por el var_dump
    // return 'La primera ruta bienvenido';
 });
 
@@ -79,6 +79,12 @@ Route::get('challenge', function () {
     // cambiar este por el var_dump
    // return 'La primera ruta bienvenido';
 });
+
+Route::get('viewusers',function(){
+    $users = App\Models\User::all();
+    return view('viewuser')->with('users',$users);
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
