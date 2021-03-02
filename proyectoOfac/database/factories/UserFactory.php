@@ -44,13 +44,15 @@ class UserFactory extends Factory
             'birthdate'         => $this->faker->dateTimeBetween($startDate = '1960', $endDate = '1999', $timezone = null),
             'gender'            => $this->faker->randomElement($array = array('Female', 'Male')),
             'address'           => $this->faker->streetAddress,
-            'photo'             => $this->faker->image(public_path('images'),400,300, 'people', false),
+            'photo'             => substr($this->faker->image('public/imgs', 140, 140, 'people'),7),
             'role'              => 'Editor',  
             'email_verified_at' => now(),
             'password'          => bcrypt('editor'), 
             'remember_token'    => Str::random(100),
         ];
     }
+
+    
 
     
 }

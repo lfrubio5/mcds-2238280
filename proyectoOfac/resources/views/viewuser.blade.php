@@ -20,7 +20,7 @@
                             <td> {{ $user->fullname }}</td>
                             <td> {{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
-                            <td><img src="{{ asset($user->photo) }}" class="img-thumbnail rounded-circle" width="36px"></td>
+                            <td class="text-center"><img src="{{ asset($user->photo) }}" class="img-thumbnail rounded-circle" width="36px"></td>
                         </tr>
                         @endforeach
                     </tbody>
