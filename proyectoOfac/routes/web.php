@@ -85,6 +85,8 @@ Route::get('viewusers',function(){
     return view('viewuser')->with('users',$users);
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('locale/{locale}',[App\Http\Controllers\LocaleController::class, 'index'])->name('index');
