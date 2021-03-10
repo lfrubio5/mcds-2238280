@@ -527,8 +527,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\UwAmp\www\especializacionSena\mcds-2238280\proyectoOfac\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\UwAmp\www\especializacionSena\mcds-2238280\proyectoOfac\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ofaczero/Desktop/mcds-2238280/larapp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ofaczero/Desktop/mcds-2238280/larapp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

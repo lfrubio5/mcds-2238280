@@ -5,6 +5,14 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GameController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,6 +93,11 @@ Route::get('viewusers',function(){
     return view('viewuser')->with('users',$users);
 });
 
+Route::resources([
+    'users'     => UserController::class,
+    //'catgories' => CategoryController::class,
+    //'games'     => GameController::class,
+]);
 
 Auth::routes();
 
