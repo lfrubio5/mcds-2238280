@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Dashboard')
 @section('content')
     <div class="row">
         <div class="col-md-10 offset-md-1">
@@ -23,7 +23,7 @@
                                 <div class="card-body">
                                     <a href="{{ route('users.index') }}" class="btn btn-block btn-larapp">
                                         <i class="fa fa-users"></i>
-                                        Mdule Users
+                                        Module Users
                                     </a>
                                 </div>
                             </div>
