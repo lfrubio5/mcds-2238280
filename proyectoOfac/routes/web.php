@@ -93,6 +93,7 @@ Route::get('viewusers',function(){
     return view('viewuser')->with('users',$users);
 });
 
+Route::post('users/search', [UserController::class, 'search']);
 Route::resources([
     'users'     => UserController::class,
     //'catgories' => CategoryController::class,

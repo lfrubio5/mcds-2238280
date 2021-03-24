@@ -48,8 +48,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function games(){
-        return $this->hasMany('App\Models\Game');// un usuario tiene muchos juegos
+    public function games() {
+        return $this->hasMany('App\Models\Game');
+    }
+
+    public function scopeNames($users, $q) {
+        if (trim($q)) {
+            $users->where('fullname', 'LIKE', "%$q%")
+                  ->orWhere('email', 'LIKE', "%$q%");
+        }
     }
 }
-
