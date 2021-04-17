@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista de usuarios</title>
-</head>
-<body>
-    <div class="container">
-    <h1>{{ $user->fullname }}</h1>
-    </div>
-</body>
-</html>
+<h1>{{ $user->fullname }}</h1>
+<hr>
+<p>{{ $user->email }}</p>
+<p>{{ $user->phone }}</p>
+<p>{{ $user->address }}</p>
+<p>{{ $user->gender }}</p>
+<p>{{ $user->role }}</p>

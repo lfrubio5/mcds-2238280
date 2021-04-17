@@ -85,14 +85,15 @@
                     });
             });
             /* - - - - - - - - - - - - - - - - - - */
-            
             $('body').on('keyup', '#qsearch', function(event) {
                 event.preventDefault();
                 $q = $(this).val();
                 $t = $('input[name=_token]').val();
                 $m = $('#tmodel').val();
+
                 $('.loader').removeClass('d-none');
                 $('.table').hide();
+
                 $sto = setTimeout(function() {
                     clearTimeout($sto);
                     $.post($m+"/search", {q: $q, _token: $t},

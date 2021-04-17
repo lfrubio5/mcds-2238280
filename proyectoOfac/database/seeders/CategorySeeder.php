@@ -15,22 +15,22 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //Metodo Insert
+        // Metodo Insert
         DB::table('categories')->insert([
-			'name'  => 'Xbox One',
-			'description'     => 'lorem insup sit amet.',
-			
+            'name'        => 'Nintendo Switch',
+            'description' => 'Lorem ipsum dolor sit amet.',
         ]);
 
-        // metodo ORM
+        // Metodo ORM
         $cat = new Category;
-        $cat->name  = 'Play station';
-        $cat->description = 'Desarrollado por sony';
+        $cat->name        = 'Xbox Series X';
+        $cat->description = 'Lorem ipsum dolor sit amet.';
         $cat->save();
 
         $cat = new Category;
-        $cat->name  = 'GamerPc';
-        $cat->description = 'Gamer pc lorem insup sit amet.';
+        $cat->name        = 'Play Station 5';
+        $cat->description = 'Lorem ipsum dolor sit amet.';
         $cat->save();
+
     }
 }

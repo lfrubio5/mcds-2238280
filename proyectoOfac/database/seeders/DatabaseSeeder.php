@@ -14,13 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // primero ciembra seeders
             UserSeeder::class,
             CategorySeeder::class,
             GameSeeder::class,
-            //
         ]);
-        //fabrica de datos llamado a la factoria de usuarios
-    \App\Models\User::factory(100)->create();// general 100 registros en la tabla usuario
-    }
+
+        \App\Models\User::factory(100)->create();
+
+        }
 }

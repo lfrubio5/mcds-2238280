@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'name',
         'image',
@@ -16,13 +16,24 @@ class Game extends Model
         'user_id',
         'category_id',
         'slider',
-        'price',
+        'price'
+
     ];
 
-    public function user(){
+    public function user() {
         return $this->belongsTo('App\Models\User');
     }
-    public function category(){
+
+    public function category() {
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function scopeNames($games, $q)
+    {
+        if (trim($q)) {
+            $games->where('name', 'LIKE', "%$q%")
+            ->orWhere('description', 'LIKE', "%$q%");
+        }
+    }
+
 }

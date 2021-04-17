@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
+use \App\Models\User;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -14,19 +15,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //Metodo Insert
+        // Metodo Insert
+
         DB::table('users')->insert([
-			'fullname'  => 'Jeremias Springfield',
-			'email'     => 'jeremias@gmail.com',
-			'phone'     => 320123121,
-			'birthdate' => '1970-10-05',
-			'gender'    => 'Male',
-			'address'   => 'Calle Siempre Viva # 12',
-			'role'      => 'Admin',
-			'password'  => bcrypt('admin'),
+            'fullname'  => 'Jeremias Springfield',
+            'email'     => 'jeremias@gmail.com',
+            'phone'     => 320123121,
+            'birthdate' => '1970-10-05',
+            'gender'    => 'Male',
+            'address'   => 'Avenida Siempre Viva 12',
+            'role'      => 'Admin',
+            'password'  => bcrypt('admin'),
         ]);
 
-        // metodo ORM
+        // Metodo ORM
+
         $user = new User;
         $user->fullname  = 'Homero Simpson';
         $user->email     = 'homero@gmail.com';
@@ -38,6 +41,4 @@ class UserSeeder extends Seeder
         $user->password  = bcrypt('editor');
         $user->save();
     }
- 
-    
 }

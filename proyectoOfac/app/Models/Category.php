@@ -12,10 +12,20 @@ class Category extends Model
     protected $fillable = [
         'name',
         'image',
-        'description',
+        'description'
+
     ];
-    
-    public function games(){
-        return $this->hasMany('App\Models\Game');// un usuario tiene muchos juegos
+
+    public function games()
+    {
+        return $this->hasMany('App\Models\Game');
+    }
+
+    public function scopeNames($categories, $q)
+    {
+        if (trim($q)) {
+            $categories->where('name', 'LIKE', "%$q%")
+            ->orWhere('description', 'LIKE', "%$q%");
+        }
     }
 }
