@@ -12,9 +12,9 @@
                     <a href="{{ url('home') }}"><i class="fas fa-clipboard-list"></i> Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ url('games') }}"><i class="fas fa-gamepad"></i> Module Games</a>
+                    <a href="{{ url('games') }}"><i class="fas fa-list-alt"></i> Module Games</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-plus"></i> Add Game</li>
+                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-search"></i> Show Game</li>
             </ol>
             </nav>
             <div class="card">
@@ -27,39 +27,52 @@
                 <div class="card-body">
                     <table class="table table-hover table-striped">
                         <tr>
-                            <th>Name:</th>
-                            <td>{{ $game->name }}</td>
+                            <td colspan="2" class="text-center">
+                                <img src="{{ asset($game->image) }}" width="240px" class="img-thumbnail">
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="text-center">
-                                <img src="{{ asset($game->image) }}" width="180px" class="img-thumbnail rounded-circle">
-                            </td>
+                            <th>Name:</th>
+                            <td>{{ $game->name }}</td>
                         </tr>
                         <tr>
                             <th>Description:</th>
                             <td>{{ $game->description }}</td>
                         </tr>
                         <tr>
-                            <th>Category:</th>
-                            <td>{{ $categories->name }}</td>
+                            <th>User:</th>
+                            <td>
+                                <img src="{{ asset($game->user->photo) }}" width="40px" class="img-thumbnail rounded-circle d-inline-flex"> 
+                                <p class="d-inline-flex">{{ $game->user->fullname }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <th>Important Game:</th>
+                            <th>Category:</th>
+                            <td>
+                                <img src="{{ asset($game->category->image) }}" width="40px" class="img-thumbnail rounded-circle d-inline-flex"> 
+                                <p class="d-inline-flex">{{ $game->category->name }}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Important:</th>
                             <td>
                                 @if($game->slider == 1 || $game->slider == 0)
-                                <button class="btn btn-sm btn-danger">No</button>
+                                    <button class="btn btn-sm btn-dark">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </button>
                                 @else
-                                    <button class="btn  btn-sm btn-success">Yes</button>
+                                        <button class="btn  btn-sm btn-success">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
                                 @endif
                             </td>
                         </tr>
                         <tr>
-                            <th>creator user:</th>
-                            <td>{{ $user->fullname }}</td>
-                        </tr>
-                        <tr>
                             <th>Price:</th>
-                            <td>{{ "$ ".$game->price }}</td>
+                            <td>
+                                <i class="fas fa-dollar-sign"></i>
+                                {{ $game->price }}
+                            </td>
                         </tr>
                     </table>
                 </div>
