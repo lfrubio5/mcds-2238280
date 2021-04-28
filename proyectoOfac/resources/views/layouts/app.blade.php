@@ -51,6 +51,13 @@
                 $('#photo').click();
             });
             /* - - - - - - - - - - - - - - - - - - */
+            $('.btn-file').click(function() {
+                $('#file').click();
+            });
+            $('#file').change(function(event) {
+                $(this).parent().submit();
+            });
+            /* - - - - - - - - - - - - - - - - - - */
             $('#photo').change(function(event) {
                 let reader = new FileReader();
                 reader.onload = function(event) {
@@ -90,10 +97,8 @@
                 $q = $(this).val();
                 $t = $('input[name=_token]').val();
                 $m = $('#tmodel').val();
-
                 $('.loader').removeClass('d-none');
                 $('.table').hide();
-
                 $sto = setTimeout(function() {
                     clearTimeout($sto);
                     $.post($m+"/search", {q: $q, _token: $t},
