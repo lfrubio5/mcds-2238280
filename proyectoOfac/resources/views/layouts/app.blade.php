@@ -47,6 +47,23 @@
     <script>
         $(document).ready(function() {
             /* - - - - - - - - - - - - - - - - - - */
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive:{
+                    0:{
+                        items: 1
+                    },
+                    600:{
+                        items: 2
+                    },
+                    1000:{
+                        items: 3
+                    }
+                }
+            });
+            /* - - - - - - - - - - - - - - - - - - */
             $('.btn-upload').click(function() {
                 $('#photo').click();
             });
@@ -76,6 +93,16 @@
                     });
             @endif
             /* - - - - - - - - - - - - - - - - - - */
+            @if (session('error'))
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: '{{ session('error') }}',
+                    showConfirmButton: false,
+                    timer: 4000
+                    });
+            @endif
+            /* - - - - - - - - - - - - - - - - - - */
             $('body').on('click', '.btn-delete', function() {
                 Swal.fire({
                     title: 'Are you sure?',
@@ -97,8 +124,10 @@
                 $q = $(this).val();
                 $t = $('input[name=_token]').val();
                 $m = $('#tmodel').val();
+
                 $('.loader').removeClass('d-none');
                 $('.table').hide();
+
                 $sto = setTimeout(function() {
                     clearTimeout($sto);
                     $.post($m+"/search", {q: $q, _token: $t},

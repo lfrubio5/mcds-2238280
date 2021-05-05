@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PDF All Users</title>
-
+    <style>
+		table {
+			border: 1px solid #aaa;
+			border-collapse: collapse;
+		}
+		table th, table td {
+			font-family: sans-serif;
+			font-size: 10px;
+			border: 1px solid #ccc;
+			padding: 4px;
+		}
+		table tr:nth-child(odd) {
+			background-color: #eee;
+		}
+		table th {
+			background-color: #666;
+			color: #fff;
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
     <table>

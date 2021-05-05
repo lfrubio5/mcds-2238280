@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\User;
 use App\Http\Requests\GameRequest;
 use Auth;
 
 class GameController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -67,10 +76,7 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        $user = User::find($game->user_id);
-        $categories = Category::find($game->category_id);
-        return view('games.show')->with('categories', $categories)
-                                 ->with('game', $game)->with('user',$user);
+        return view('games.show')->with('game', $game);
     }
 
     /**
